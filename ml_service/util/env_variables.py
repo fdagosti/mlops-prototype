@@ -83,7 +83,7 @@ class Env:
         os.environ.get("AML_CLUSTER_MIN_NODES_SCORING", 0)
     )  # NOQA: E501
     max_nodes_scoring: int = int(
-        os.environ.get("AML_CLUSTER_MAX_NODES_SCORING", 4)
+        os.environ.get("AML_CLUSTER_MAX_NODES_SCORING", 2)
     )  # NOQA: E501
     rebuild_env_scoring: Optional[bool] = os.environ.get(
         "AML_REBUILD_ENVIRONMENT_SCORING", "false"
