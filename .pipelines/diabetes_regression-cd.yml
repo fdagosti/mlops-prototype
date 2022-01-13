@@ -76,7 +76,7 @@ stages:
           python -m ml_service.util.smoke_test_scoring_service --type ACI --service "$(ACI_DEPLOYMENT_NAME)"
 - stage: Manual_Verification
   displayName: "Manual Verification"
-  dependsOn: Deploy_ACI
+  dependsOn: Deploy_Staging
   condition: succeeded()
   jobs:
     - job: "askexpert"
