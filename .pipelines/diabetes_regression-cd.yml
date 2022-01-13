@@ -77,7 +77,8 @@ stages:
 - stage: Manual_Verification
   displayName: "Manual Verification"
   jobs:
-    - job: "check"
+    - job: agentless-job
+      pool: server
       displayName: "Ask an expert"
       steps:
         - task: ManualValidation@0
