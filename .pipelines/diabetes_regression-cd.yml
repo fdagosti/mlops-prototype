@@ -29,8 +29,8 @@ variables:
 - group: devopsforai-aml-vg
 
 stages:
-- stage: 'Deploy_ACI'
-  displayName: 'Deploy to ACI'
+- stage: 'Deploy_Staging'
+  displayName: 'Deploy to Test Environment'
   condition: variables['ACI_DEPLOYMENT_NAME']
   jobs:
   - job: "Deploy_ACI"
@@ -87,8 +87,8 @@ stages:
           inputs:
             notifyUsers: 'f_dagostini@hotmail.com'
             instructions: 'Please validate'
-- stage: 'Deploy_AKS'
-  displayName: 'Deploy to AKS'
+- stage: 'Deploy_Production'
+  displayName: 'Deploy to Production'
   dependsOn: Manual_Verification
   condition: and(succeeded(), variables['AKS_DEPLOYMENT_NAME'])
   jobs:
