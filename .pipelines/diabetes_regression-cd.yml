@@ -77,7 +77,7 @@ stages:
 - stage: Manual_Verification
   displayName: "Manual Verification"
   dependsOn: Deploy_ACI
-  condition: and(succeeded(), variables['AKS_DEPLOYMENT_NAME'])
+  condition: succeeded()
   jobs:
     - job: "askexpert"
       pool: server
