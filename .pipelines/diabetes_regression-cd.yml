@@ -1,5 +1,6 @@
 # Continuous Integration (CI) pipeline that orchestrates the deployment of the diabetes_regression model.
 
+
 # Runtime parameters to select artifacts
 parameters:
 - name : artifactBuildId
@@ -84,6 +85,10 @@ stages:
     container: mlops
     timeoutInMinutes: 0
     steps:
+    - task: ManualValidation@0
+      inputs:
+        notifyUsers: 'f_dagostini@hotmail.com'
+        instructions: 'Please validate'
     - template: diabetes_regression-get-model-id-artifact-template.yml
       parameters:
         projectId: '$(resources.pipeline.model-train-ci.projectID)'
