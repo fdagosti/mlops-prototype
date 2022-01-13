@@ -257,6 +257,9 @@ def get_run_configs(
         create_new=env.rebuild_env_scoring,
     )
 
+    print("HELLO")
+    print(env.max_nodes_scoring)
+
     score_run_config = ParallelRunConfig(
         entry_script=env.batchscore_script_path,
         source_directory=env.sources_directory_train,
