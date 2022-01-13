@@ -76,6 +76,8 @@ stages:
           python -m ml_service.util.smoke_test_scoring_service --type ACI --service "$(ACI_DEPLOYMENT_NAME)"
 - stage: Manual_Verification
   displayName: "Manual Verification"
+  dependsOn: Deploy_ACI
+  condition: and(succeeded(), variables['AKS_DEPLOYMENT_NAME'])
   jobs:
     - job: "askexpert"
       pool: server
@@ -87,7 +89,7 @@ stages:
             instructions: 'Please validate'
 - stage: 'Deploy_AKS'
   displayName: 'Deploy to AKS'
-  dependsOn: Deploy_ACI
+  dependsOn: Manual_Verification
   condition: and(succeeded(), variables['AKS_DEPLOYMENT_NAME'])
   jobs:
   - job: "Deploy_AKS"
