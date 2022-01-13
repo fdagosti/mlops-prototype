@@ -74,7 +74,16 @@ stages:
           set -e # fail on error
           export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
           python -m ml_service.util.smoke_test_scoring_service --type ACI --service "$(ACI_DEPLOYMENT_NAME)"
-
+- stage: Manual_Verification
+  displayName: "Manual Verification"
+  jobs:
+    - job: "check"
+      displayName: "Ask an expert"
+      steps:
+        - task: ManualValidation@0
+          inputs:
+            notifyUsers: 'f_dagostini@hotmail.com'
+            instructions: 'Please validate'
 - stage: 'Deploy_AKS'
   displayName: 'Deploy to AKS'
   dependsOn: Deploy_ACI
@@ -85,10 +94,6 @@ stages:
     container: mlops
     timeoutInMinutes: 0
     steps:
-    - task: ManualValidation@0
-      inputs:
-        notifyUsers: 'f_dagostini@hotmail.com'
-        instructions: 'Please validate'
     - template: diabetes_regression-get-model-id-artifact-template.yml
       parameters:
         projectId: '$(resources.pipeline.model-train-ci.projectID)'
