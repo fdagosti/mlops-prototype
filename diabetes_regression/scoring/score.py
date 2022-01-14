@@ -63,6 +63,8 @@ output_sample = numpy.array([
 def run(data, request_headers):
     result = model.predict(data)
 
+
+    print("hello, I am scoring")
     # Demonstrate how we can log custom data into the Application Insights
     # traces collection.
     # The 'X-Ms-Request-id' value is generated internally and can be used to
