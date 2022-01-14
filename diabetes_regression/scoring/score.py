@@ -62,8 +62,6 @@ output_sample = numpy.array([
 @output_schema(NumpyParameterType(output_sample))
 def run(data, request_headers):
     result = model.predict(data)
-
-
     print("hello, I am scoring")
     # Demonstrate how we can log custom data into the Application Insights
     # traces collection.
