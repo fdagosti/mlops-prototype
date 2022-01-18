@@ -116,8 +116,8 @@ try:
 
     if (model is not None):
         production_model_mse = 10000
- #       if (metric_eval in model.tags):
- #           production_model_mse = float(model.tags[metric_eval])
+        # if (metric_eval in model.tags):
+        #     production_model_mse = float(model.tags[metric_eval])
         try:
             new_model_mse = float(run.parent.get_metrics().get(metric_eval))
         except TypeError:
