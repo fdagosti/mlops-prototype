@@ -122,7 +122,7 @@ def main():
             dataset_name,
         ],
         runconfig=run_config,
-        allow_reuse=True,
+        allow_reuse=False,
     )
     print("Step Train created")
 
