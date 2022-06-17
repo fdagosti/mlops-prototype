@@ -48,7 +48,7 @@ def register_dataset(
 
 
 def main():
-    print("Running train_aml.py")
+    print("Running train_aml.py for a demo")
 
     parser = argparse.ArgumentParser("train")
     parser.add_argument(
