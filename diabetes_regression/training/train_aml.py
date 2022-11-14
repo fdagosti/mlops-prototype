@@ -93,7 +93,7 @@ def main():
 
     args = parser.parse_args()
 
-    print("Argument [model_name]: %s" % args.model_name)
+    print("2 Argument [model_name]: %s" % args.model_name)
     print("Argument [step_output]: %s" % args.step_output)
     print("Argument [dataset_version]: %s" % args.dataset_version)
     print("Argument [data_file_path]: %s" % args.data_file_path)
